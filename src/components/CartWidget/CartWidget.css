@@ -1,0 +1,21 @@
+.cartWidget__logo {
+    height: 55px;
+    width: auto;
+}
+
+.cartWidget__container {
+    padding: 0 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+}
+
+
+.cartWidget__number {
+    background-color: Black;
+    margin-left: 2px;
+    border-radius: 35%;
+    padding: 0 5px;
+}
