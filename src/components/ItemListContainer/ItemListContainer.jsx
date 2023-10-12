@@ -1,6 +1,6 @@
 import React from 'react'
-import ItemList from './ItemList'
-import ItemList2 from './ItemList2'
+import ItemList from '../ItemList/ItemList'
+import ItemList2 from '../ItemList/ItemList2'
 import { useState, useEffect } from 'react'
 
 const ItemListContainer = () => {
@@ -46,7 +46,7 @@ const ItemListContainer = () => {
     return (
         <>
             <ItemList productos={productos}/>
-            <ItemList2 productos={productos}/>
+            {/*<ItemList2 productos={productos}/>*/}
         </>
     )
 }

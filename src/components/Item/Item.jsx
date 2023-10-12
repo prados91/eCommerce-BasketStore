@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "./ItemList.css"
+import "./Item.css"
 
 const Item = ({ title, description, price, image }) => {
 

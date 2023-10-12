@@ -1,14 +1,14 @@
 import React from 'react'
-import Item from './Item'
+import Item2 from '../Item/Item2'
 import './ItemList.css'
 
 
-const ItemList = ({ productos }) => {
+const ItemList2 = ({ productos }) => {
     return (
         <div className="container-fluid"> {/*className="itemList__card"*/}
             <div className="row justify-content-center">
             {productos.map((p) => (
-                <Item 
+                <Item2
                     key = {p.id}
                     title = {p.title}
                     description = {p.description}
@@ -21,4 +21,4 @@ const ItemList = ({ productos }) => {
     );
 };
 
-export default ItemList;
+export default ItemList2;
