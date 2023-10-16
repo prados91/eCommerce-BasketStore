@@ -1,7 +1,9 @@
 import React from 'react'
 import cartIcon from '/cartWidget.png'
 import './CartWidget.css'
+
 const CartWidget = () => {
+
     return (
         <div className="cartWidget__container">
             <img src={cartIcon} alt="Icono de carrito" className='cartWidget__logo'/>

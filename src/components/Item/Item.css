@@ -1,66 +1,25 @@
-.itemList__card {
-    margin: 0 auto 40px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-column-gap: 20px;
-    justify-items: center;
-    width: 95%;
-}
-
-.item__container {
-    margin-top: 50px;
-    max-width: 300px;
-    text-decoration: none;
-    color: #000;
-    background: #383838;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    transition: 0.5s;
-    color: white;
-}
-
-.item__container:hover {
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-    transition: 0.5s;
-}
-
-.item__picture {
-    display: block;
-    width: 100%;
-}
-
-.item__details {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    padding: 10px;
-    text-align: center;
-}
-
-.productos-card {
+.item__card {
     background-color: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.25);
+    box-shadow: 0 4px 8px 0 rgba(120, 0, 0, 0.25);
     transition: 0.3s;
 }
 
-.productos-card:hover {
+.item__card:hover {
     box-shadow: 0 8px 32px 0 rgba(65, 65, 65, 0.25);
 }
 
-.productos-cardDatos {
+.item__card--data {
     padding: 2px 16px;
     border-top: 2px solid #dc0054;
     margin-bottom: 25px;
 }
-.productos-img {
-    width: 100px;
-    height: 50px;
-}
 
-.productos-cardDatos h5 {
+.item__card--data h5 {
     text-align: center;
 }
 
-.btnAgregar {
+.item__button--more {
     background-color: #c8102e;
     color: #ffffff;
     padding: 10px 20px;
@@ -70,9 +29,13 @@
     border-style: none;
 }
 
-.btnAgregar:hover {
+.item__button--more:hover {
     color: #ffffff;
-    letter-spacing: 0.1rem;
+    /*letter-spacing: 0.1rem;*/
     box-shadow: 0 4px 8px 0 rgba(200, 16, 46, 0.7);
 }
 
+.img-fluid{
+    display: block;
+    width: 100%;
+}
