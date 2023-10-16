@@ -11,7 +11,8 @@
 
 .item__card--data {
     padding: 2px 16px;
-    border-top: 2px solid #dc0054;
+    /*border-top: 2px solid #dc0054;*/
+    border-top: 2px solid rgb(61,61,61);
     margin-bottom: 25px;
 }
 
@@ -20,8 +21,8 @@
 }
 
 .item__button--more {
-    background-color: #c8102e;
-    color: #ffffff;
+    background-color: rgb(61,61,61);
+    color: white;
     padding: 10px 20px;
     border-radius: 10px;
     border: none;

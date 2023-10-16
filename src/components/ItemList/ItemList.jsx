@@ -5,7 +5,7 @@ import './ItemList.css'
 
 const ItemList = ({ productos }) => {
     return (
-        <div className="container-fluid"> {/*className="itemList__card"*/}
+        <div className="container-fluid">
             <div className="row justify-content-center">
                 {
                     productos.map((p) => {

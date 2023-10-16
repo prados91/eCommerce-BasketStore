@@ -31,9 +31,8 @@
   }
 
 .navbar__items--btn {
-    background-color: gray;
-    color: Black;
-    font-weight: bold;
+    background-color: rgb(61,61,61);
+    color: white;
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
