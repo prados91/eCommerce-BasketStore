@@ -1,12 +1,12 @@
 import React from 'react'
-import { useState } from 'react';
+import { Link } from "react-router-dom"
 
 import "./Item.css"
 
-const Item = ({ title, description, price, image }) => {
+const Item = ({ id, title, description, price, image }) => {
 
     return (
-        <div className="col-10 col-sm-6 col-md-4 col-xl-3 p-4 d-flex align-items-stretch">
+        <Link to={`/item/${id}`}className="col-10 col-sm-6 col-md-4 col-xl-3 p-4 d-flex align-items-stretch">
             <div className="item__card">
                 <img src={image} className="img-fluid" />
                 <div className="item__card--data">
@@ -15,7 +15,7 @@ const Item = ({ title, description, price, image }) => {
                     <button className="item__button--more">Ver mas</button>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
