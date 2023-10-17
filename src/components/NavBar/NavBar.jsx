@@ -15,25 +15,25 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
                         <li><NavLink
-                            to="/category/Gorras"
+                            to={`/category/gorras`}
                             className={({ isActive }) => (isActive ? "navbar__items--btnON" : "navbar__items--btn")}
                         >
                             Gorras
                         </NavLink></li>
                         <li><NavLink
-                            to="/category/Camisetas"
+                            to={`/category/camisetas`}
                             className={({ isActive }) => (isActive ? "navbar__items--btnON" : "navbar__items--btn")}
                         >
                             Camisetas
                         </NavLink></li>
                         <li><NavLink
-                            to="/category/Pantalones"
+                            to={`/category/pantalones`}
                             className={({ isActive }) => (isActive ? "navbar__items--btnON" : "navbar__items--btn")}
                         >
                             Pantalones
                         </NavLink></li>
                         <li><NavLink
-                            to="/category/Camperas"
+                            to={`/category/camperas`}
                             className={({ isActive }) => (isActive ? "navbar__items--btnON" : "navbar__items--btn")}
                         >
                             Camperas

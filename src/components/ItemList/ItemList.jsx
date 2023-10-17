@@ -4,6 +4,7 @@ import './ItemList.css'
 
 
 const ItemList = ({ productos }) => {
+    console.log(productos)
     return (
         <div className="container-fluid">
             <div className="row justify-content-center">

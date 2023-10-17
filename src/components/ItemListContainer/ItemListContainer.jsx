@@ -1,20 +1,32 @@
 import React from 'react'
 import ItemList from '../ItemList/ItemList'
-import { getProducts } from '../../functions/useFunction.js'
+import { getProducts, getProductByCategory } from '../../functions/useFunction.js'
 import { useState, useEffect } from 'react'
-const ItemListContainer = ({greeting}) => {
+import { useParams } from 'react-router-dom'
+
+
+const ItemListContainer = ({ greeting }) => {
 
     const [productos, setProducts] = useState([])
+    const [load, setLoad] = useState(false);
+    const { categoryID } = useParams()
 
     useEffect(() => {
-        getProducts().then((p) => setProducts(p))
-    }, [])
-    
+        setLoad(true);
+        const asyncFunc = categoryID ? getProductByCategory : getProducts
+
+        asyncFunc(categoryID)
+            .then((p) => setProducts(p))
+    }, [categoryID])
+
 
     return (
         <>
-            <h1>{greeting}</h1>
-            <ItemList productos={productos} />
+            {load ?  (<>
+                <h1>{greeting}</h1>
+                <ItemList productos={productos} />
+            </>
+            ): ("Esperando")}
         </>
     )
 }
