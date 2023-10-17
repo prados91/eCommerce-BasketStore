@@ -9,7 +9,7 @@ const ItemDetail = ({ producto }) => {
         <div className="itemDetail__container">
             <h1>{producto.title}</h1>
             <div className="itemDetail__columns">
-                <div className="itemDetail__column--info">
+                <div className="itemDetail__column--description">
                     <p>{producto.description}</p>
                     <h2>${producto.price}.</h2>
                     <p>Disponibles: {producto.stock}</p>

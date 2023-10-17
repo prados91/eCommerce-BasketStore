@@ -1,7 +1,7 @@
 .item__card {
     background-color: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(120, 0, 0, 0.25);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
     transition: 0.3s;
 }
 
@@ -12,7 +12,7 @@
 .item__card--data {
     padding: 2px 16px;
     /*border-top: 2px solid #dc0054;*/
-    border-top: 2px solid rgb(61,61,61);
+    border-top: 2px solid rgb(61, 61, 61);
     margin-bottom: 25px;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .item__button--more {
-    background-color: rgb(61,61,61);
+    background-color: rgb(61, 61, 61);
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
@@ -36,7 +36,7 @@
     box-shadow: 0 4px 8px 0 rgba(200, 16, 46, 0.7);
 }
 
-.img-fluid{
+.img-fluid {
     display: block;
     width: 100%;
 }

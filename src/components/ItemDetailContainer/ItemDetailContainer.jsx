@@ -11,19 +11,19 @@ const ItemDetailContainer = () => {
     const [producto, setProduct] = useState(null)
     const [flag, setFlag] = useState(true)
 
-    const { itemId } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
-        getProductByID('2')
+        getProductByID(id)
             .then(response => {
                 setProduct(response)
                 setFlag(false)
             })
-    }, [itemId])
+    }, [id])
 
 
     return (
-        <div>
+        <div className='itemDetailContainer__container'>
             {flag ? "Esperando" : <ItemDetail producto={producto} />}
         </div>
     )

@@ -13,7 +13,7 @@
   .itemCount__quantity--btnAddItem {
     height: 40px;
     width: 40px;
-    background: #000;
+    background: rgb(61, 61, 61);
     color: #fff;
     border: 1px solid #fff;
     border-radius: 5px;
