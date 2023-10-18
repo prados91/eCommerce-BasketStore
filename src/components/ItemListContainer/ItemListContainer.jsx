@@ -1,36 +1,39 @@
 import React from 'react'
-import './ItemListContainer.css'
-import ItemList from '../ItemList/ItemList'
-import { getProducts, getProductByCategory } from '../../functions/useFunction.js'
 import { useState, useEffect } from 'react'
+import { getProducts, getProductsByCategory } from '../../functions/useFunction.js'
+import ItemList from '../ItemList/ItemList'
+
 import { useParams } from 'react-router-dom'
 
+import './ItemListContainer.css'
 
 const ItemListContainer = ({ greeting }) => {
 
-    const [productos, setProducts] = useState([]);
-    const [load, setLoad] = useState(false);
-    const { category } = useParams();
+    const [productos, setProducts] = useState(null)
+    const [load, setLoad] = useState(true)
+    const { categoryId } = useParams()
 
     useEffect(() => {
-        
-        const asyncFunc = category ? getProductByCategory : getProducts
+        const asyncFunc = categoryId ? getProductsByCategory : getProducts
 
-        asyncFunc()
-            .then((p) => {
-                setProducts(p)
-                setLoad(true)   
-            }
-            )
-    }, [category])
+        asyncFunc(categoryId)
+            .then(response => {
+                setProducts(response)
+                setLoad(false)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }, [categoryId])
 
     return (
         <div className="itemListContainer__container">
-            {load ?  (<>
-                <h1>{greeting}</h1>
-                <ItemList productos={productos} />
-            </>
-            ): ("Esperando")}
+            {load ? ('Esperando') :
+                (<>
+                    <h1>{greeting}</h1>
+                    <ItemList productos={productos} />
+                </>
+                )}
         </div>
     )
 }

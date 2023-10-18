@@ -10,7 +10,6 @@ const ItemDetailContainer = () => {
 
     const [producto, setProduct] = useState(null)
     const [flag, setFlag] = useState(true)
-
     const { id } = useParams()
 
     useEffect(() => {
@@ -18,6 +17,9 @@ const ItemDetailContainer = () => {
             .then(response => {
                 setProduct(response)
                 setFlag(false)
+            })
+            .catch(error => {
+                console.log(error)
             })
     }, [id])
 

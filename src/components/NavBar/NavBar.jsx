@@ -14,30 +14,10 @@ const NavBar = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
-                        <li><NavLink
-                            to={`/category/gorras`}
-                            className={({ isActive }) => (isActive ? "navbar__items--btnON" : "navbar__items--btn")}
-                        >
-                            Gorras
-                        </NavLink></li>
-                        <li><NavLink
-                            to={`/category/camisetas`}
-                            className={({ isActive }) => (isActive ? "navbar__items--btnON" : "navbar__items--btn")}
-                        >
-                            Camisetas
-                        </NavLink></li>
-                        <li><NavLink
-                            to={`/category/pantalones`}
-                            className={({ isActive }) => (isActive ? "navbar__items--btnON" : "navbar__items--btn")}
-                        >
-                            Pantalones
-                        </NavLink></li>
-                        <li><NavLink
-                            to={`/category/camperas`}
-                            className={({ isActive }) => (isActive ? "navbar__items--btnON" : "navbar__items--btn")}
-                        >
-                            Camperas
-                        </NavLink></li>
+                        <li><NavLink to="/category/gorras" className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Gorras</NavLink></li>
+                        <li><NavLink to="/category/camisetas" className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Camisetas</NavLink></li>
+                        <li><NavLink to="/category/pantalones" className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Pantalones</NavLink></li>
+                        <li><NavLink to="/category/camperas" className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Camperas</NavLink></li>
                     </ul>
                     <ul>
                         <CartWidget />
