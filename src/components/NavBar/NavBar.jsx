@@ -14,10 +14,10 @@ const NavBar = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
                 <div className="collapse navbar-collapse " id="navbarNavDropdown">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
-                        <li><NavLink to={'/categoria/1'} className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Gorras</NavLink></li>
-                        <li><NavLink to={'/categoria/2'} className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Camisetas</NavLink></li>
-                        <li><NavLink to={'/categoria/3'} className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Pantalones</NavLink></li>
-                        <li><NavLink to={'/categoria/4'} className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Camperas</NavLink></li>
+                        <NavLink to='/categoria/gorras' className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Gorras</NavLink>
+                        <NavLink to='/categoria/camisetas' className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Camisetas</NavLink>
+                        <NavLink to='/categoria/pantalones' className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Pantalones</NavLink>
+                        <NavLink to='/categoria/camperas' className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Camperas</NavLink>
                     </ul>
                     <ul>
                         <CartWidget />
