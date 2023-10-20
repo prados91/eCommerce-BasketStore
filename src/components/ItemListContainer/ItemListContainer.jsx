@@ -12,11 +12,11 @@ const ItemListContainer = ({ greeting }) => {
     const [productos, setProducts] = useState([])
     const [load, setLoad] = useState(true)
     const { category } = useParams()
-    console.log(category)
 
     useEffect(() => {
-        if (category) {
-            getProductsByCategory(category)
+        const renderProd = category ? getProductsByCategory : getProducts;
+
+        renderProd(category)
             .then(response => {
                 setProducts(response)
                 setLoad(false)
@@ -24,17 +24,6 @@ const ItemListContainer = ({ greeting }) => {
             .catch(error => {
                 console.log(error)
             })
-        } else {
-            
-            getProducts()
-            .then(response => {
-                setProducts(response)
-                setLoad(false)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-        }
     }, [category])
 
     return (
