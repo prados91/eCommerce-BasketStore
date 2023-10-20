@@ -11,11 +11,10 @@
   
   .itemCount__quantity--btnSubItem,
   .itemCount__quantity--btnAddItem {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     background: rgb(61, 61, 61);
     color: #fff;
-    border: 1px solid #fff;
     border-radius: 5px;
     font-size: 24px;
     font-weight: bold;
@@ -24,9 +23,9 @@
   
   .itemCount__quantity--btnSubItem:hover,
   .itemCount__quantity--btnAddItem:hover {
-    background: #fff;
+    background: rgba(200, 16, 46, 0.7);
     color: #000;
-    border: 1px solid #000;
+    border: 1px solid rgb(200, 16, 46);
     transition: 0.25s;
   }
   

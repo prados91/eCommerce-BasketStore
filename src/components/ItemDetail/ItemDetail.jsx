@@ -14,6 +14,7 @@ const ItemDetail = ({ producto }) => {
                     <h2>${producto.price}.</h2>
                     <p>Disponibles: {producto.stock}</p>
                     <ItemCount count={count} setCount={setCount} stock={producto.stock} />
+                    <button className="itemDetail__btnAddToCart">Agregar al carrito.</button>
                 </div>
             </div>
         </div>
