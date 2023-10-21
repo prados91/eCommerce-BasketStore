@@ -3,7 +3,9 @@ import './Form.css'
 
 const Form = () => {
   return (
-    <div>Formulario</div>
+    <div className='formContainer__container'>
+        Formulario de compras
+    </div>
   )
 }
 

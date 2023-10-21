@@ -5,7 +5,6 @@ import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Footer from './components/Footer/Footer';
-import Form from './components/Form/Form';
 import CartContainer from './components/CartContainer/CartContainer';
 function App() {
 
@@ -20,7 +19,6 @@ function App() {
                 <Route path="/cart" element={<CartContainer />} />
                 <Route exact path='*' element={<h1> 404 NOT FOUND </h1>} />
             </Routes>
-            <Form />
             <Footer />
         </BrowserRouter>
 
