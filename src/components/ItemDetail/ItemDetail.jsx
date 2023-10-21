@@ -1,10 +1,14 @@
 import React from 'react'
-import { useState, useContext } from "react";
+import { useState } from "react";
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 const ItemDetail = ({ producto }) => {
     const [count, setCount] = useState(1);
+
+    const addCart = () => {
+       alert("Agregaste productos al carrito")
+    }
     return (
         <div className="itemDetail__container">
             <h1>{producto.title}</h1>
@@ -14,7 +18,7 @@ const ItemDetail = ({ producto }) => {
                     <h2>${producto.price}.</h2>
                     <p>Disponibles: {producto.stock}</p>
                     <ItemCount count={count} setCount={setCount} stock={producto.stock} />
-                    <button className="itemDetail__btnAddToCart">Agregar al carrito.</button>
+                    <button className="itemDetail__btnAddToCart" onClick={addCart}>Agregar al carrito.</button>
                 </div>
             </div>
         </div>
