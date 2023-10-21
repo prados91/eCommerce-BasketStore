@@ -8,7 +8,7 @@ const CartWidget = () => {
     return (
         <Link to="/cart" className="cartWidget__container">
             <img src={cartIcon} alt="Icono de carrito" className='cartWidget__logo' />
-            <p className="cartWidget__number">0</p>
+            <p className="cartWidget__number">00</p>
         </Link>
     )
 }
