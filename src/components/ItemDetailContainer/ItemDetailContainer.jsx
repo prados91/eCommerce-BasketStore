@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { getProductByID } from '../../functions/useFunction.js'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import Loading from '../Loading/Loading'
 
 import './ItemDetailContainer.css'
 import { useParams } from 'react-router-dom';
@@ -13,6 +14,7 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
 
     useEffect(() => {
+        setFlag(true)
         getProductByID(id)
             .then(response => {
                 setProduct(response)
@@ -26,7 +28,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className='itemDetailContainer__container'>
-            {flag ? "Esperando" : <ItemDetail producto={producto} />}
+            {flag ? (<Loading />)  : <ItemDetail producto={producto} />}
         </div>
     )
 }

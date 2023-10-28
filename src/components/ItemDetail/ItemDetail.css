@@ -36,7 +36,7 @@
     margin: 5px 0;
 }
 
-.itemDetail__btnAddToCart {
+.itemDetail__btn--AddItemToCart {
     height: 40px;
     width: 100%;
     background: rgb(61, 61, 61);
@@ -47,7 +47,7 @@
     transition: 0.25s;
   }
   
-  .itemDetail__btnAddToCart:hover {
+  .itemDetail__btn--AddItemToCart:hover {
     background: rgba(200, 16, 46, 0.7);
     color: #000;
     border: 1px solid rgb(200, 16, 46);

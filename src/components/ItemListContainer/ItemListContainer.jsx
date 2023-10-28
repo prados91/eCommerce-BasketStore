@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { getProducts, getProductsByCategory } from '../../functions/useFunction.js'
 import ItemList from '../ItemList/ItemList'
+import Loading from '../Loading/Loading'
 
 import { useParams } from 'react-router-dom'
 
@@ -14,6 +15,7 @@ const ItemListContainer = ({ greeting }) => {
     const { category } = useParams()
 
     useEffect(() => {
+        setLoad(true)
         const renderProd = category ? getProductsByCategory : getProducts;
 
         renderProd(category)
@@ -26,9 +28,10 @@ const ItemListContainer = ({ greeting }) => {
             })
     }, [category])
 
+
     return (
         <div className="itemListContainer__container">
-            {load ? ('Esperando') :
+            {load ? (<Loading />) :
                 (<>
                     <h1>{greeting}</h1>
                     <ItemList productos={productos} />
