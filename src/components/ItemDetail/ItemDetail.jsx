@@ -7,8 +7,6 @@ import './ItemDetail.css'
 const ItemDetail = ({ producto }) => {
     const { addItemToCart, itemInCart } = useContext(CartContext);
     const [count, setCount] = useState(1);
-    const [pictureNumber, setPictureNumber] = useState(0);
-
 
 return (
     <div className="itemDetail__container">
@@ -26,7 +24,7 @@ return (
                             addItemToCart(producto, count);
                         }}
                     >
-                        {itemInCart(producto.id) ? "Producto agregado al carrito" : "Agregar al carrito"}
+                        {itemInCart(producto.id) ? "Producto agregado al carrito": "Agregar al carrito"}
                     </button>
 
             </div>

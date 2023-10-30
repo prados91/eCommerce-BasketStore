@@ -10,7 +10,7 @@ const CartWidget = () => {
     const { cart } = useContext(CartContext);
 
     useEffect(() => {
-        setTotalItems(cart.reduce((acum, item) => acum + item.cantidad, 0));
+        setTotalItems(cart.reduce((acum, item) => acum + item.quantity, 0));
       }, [cart]);
 
     return (

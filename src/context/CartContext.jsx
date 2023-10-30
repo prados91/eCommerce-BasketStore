@@ -10,18 +10,27 @@ export const CartProvider = ({ children }) => {
       cartJSONGet && setCart(cartJSONGet);
     };
   
-    const setCartLocalStorage = () => localStorage.setItem("cartJSON", JSON.stringify(cart));
+    const setCartLS = () => localStorage.setItem("cartJSON", JSON.stringify(cart));
   
     const itemInCart = (id) => cart.some((item) => item.id === id);
-  
-    const addItemToCart = ({ id, title, price }, cantidad) => {
-      !itemInCart(id) && cantidad > 0 && setCart([...cart, { id, title, price, cantidad }]);
-    };
-  
+
+    const addItemToCart = (product, quantity) => {
+        const { id, title, price } = product;
+      
+        if (!itemInCart(id) && quantity > 0) {
+          const newItem = { id, title, price, quantity };
+          const newCart = cart.concat(newItem); // Concatenar el nuevo elemento al arreglo cart
+          setCart(newCart);
+        }
+      };
+
     const deleteItemFromCart = (id) => {
-      itemInCart(id) && setCart(cart.filter((item) => item.id !== id));
-    };
-  
+        if (itemInCart(id)) {
+          const updateCart = cart.filter((item) => item.id !== id);
+          setCart(updateCart);
+        }
+      };
+
     const clearItemsFromCart = () => {
       setCart([]);
     };
@@ -31,11 +40,11 @@ export const CartProvider = ({ children }) => {
     }, []);
   
     useEffect(() => {
-      setCartLocalStorage();
+      setCartLS();
     }, [cart]);
   
     return (
-      <CartContext.Provider value={{ cart, addItemToCart, deleteItemFromCart, itemInCart, clearItemsFromCart }}>
+      <CartContext.Provider value={{ cart, addItemToCart, deleteItemFromCart , itemInCart, clearItemsFromCart }}>
         {children}
       </CartContext.Provider>
     );

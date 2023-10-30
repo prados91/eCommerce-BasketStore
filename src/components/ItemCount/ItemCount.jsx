@@ -11,10 +11,6 @@ const ItemCount = ({ count, setCount, stock }) => {
         setCount((currentCount) => (currentCount < stock ? currentCount + 1 : currentCount));
     };
 
-    const addCart = () => {
-        console.log("Agregaste productos al carrito")
-    };
-
     return (
         <div className="itemCount__container">
             <div className="itemCount__quantity">
