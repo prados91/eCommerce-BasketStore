@@ -8,29 +8,35 @@ const ItemDetail = ({ producto }) => {
     const { addItemToCart, itemInCart } = useContext(CartContext);
     const [count, setCount] = useState(1);
 
-return (
-    <div className="itemDetail__container">
-        <h1>{producto.title}</h1>
-        <div className="itemDetail__columns">
-            <div className="itemDetail__column--description">
-                <p>{producto.description}</p>
-                <h2>${producto.price}.</h2>
-                <p>Disponibles: {producto.stock}</p>
-                <ItemCount count={count} setCount={setCount} stock={producto.stock} />
+    return (
+        <div className="itemDetail__container">
+            <h1>{producto.title}</h1>
 
-                <button
+            <div className="itemDetail__columns">
+                <div className="itemDetail__column--image">
+                    <div>
+                        <img src={producto.image} alt={producto.title} />
+                    </div>
+                </div>
+                <div className="itemDetail__column--description">
+                    <p>{producto.description}</p>
+                    <h2>${producto.price}.</h2>
+                    <p>Disponibles: {producto.stock}</p>
+                    <ItemCount count={count} setCount={setCount} stock={producto.stock} />
+
+                    <button
                         className="itemDetail__btn--AddItemToCart"
                         onClick={() => {
                             addItemToCart(producto, count);
                         }}
                     >
-                        {itemInCart(producto.id) ? "Producto agregado al carrito": "Agregar al carrito"}
+                        {itemInCart(producto.id) ? "Producto agregado al carrito" : "Agregar al carrito"}
                     </button>
 
+                </div>
             </div>
-        </div>
 
-    </div>
-);
+        </div>
+    );
 };
 export default ItemDetail

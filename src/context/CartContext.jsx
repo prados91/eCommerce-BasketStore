@@ -15,10 +15,10 @@ export const CartProvider = ({ children }) => {
     const itemInCart = (id) => cart.some((item) => item.id === id);
 
     const addItemToCart = (product, quantity) => {
-        const { id, title, price } = product;
+        const { id, title, price, image } = product;
       
         if (!itemInCart(id) && quantity > 0) {
-          const newItem = { id, title, price, quantity };
+          const newItem = { id, title, price, image, quantity };
           const newCart = cart.concat(newItem); // Concatenar el nuevo elemento al arreglo cart
           setCart(newCart);
         }

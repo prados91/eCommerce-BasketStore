@@ -7,6 +7,8 @@ import './CartItem.css'
 const CartItem = () => {
     const { cart, deleteItemFromCart } = useContext(CartContext);
 
+    console.log(cart)
+
 
     return (
         <div>
@@ -16,11 +18,10 @@ const CartItem = () => {
                         <button className="cartItem__producto--btnDelete" onClick={() => deleteItemFromCart(producto.id)}>
                             X
                         </button>
-                        <img src="" alt={producto.title} />
+                        <img src={producto.image} alt={producto.title} />
                         <div>
                             {producto.title} (x {producto.quantity}u.)
                         </div>
-
                     </div>
                     <div className="cartItem__producto--price">${producto.quantity * producto.price}</div>
                 </div>

@@ -4,6 +4,8 @@ import { getProducts, getProductsByCategory } from '../../functions/useFunction.
 import ItemList from '../ItemList/ItemList'
 import Loading from '../Loading/Loading'
 
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+
 import { useParams } from 'react-router-dom'
 
 import './ItemListContainer.css'
@@ -14,7 +16,7 @@ const ItemListContainer = ({ greeting }) => {
     const [load, setLoad] = useState(true)
     const { category } = useParams()
 
-    useEffect(() => {
+    /*useEffect(() => {
         setLoad(true)
         const renderProd = category ? getProductsByCategory : getProducts;
 
@@ -26,7 +28,27 @@ const ItemListContainer = ({ greeting }) => {
             .catch(error => {
                 console.log(error)
             })
-    }, [category])
+    }, [category])*/
+
+    const getProducts = () => {
+        const db = getFirestore();
+        const dbCollection = collection(db, "productos");
+        const dbQuery = !category ? dbCollection : query(dbCollection, where("category", "==", category));
+        getDocs(dbQuery)
+          .then((response) => {
+            setProducts(response.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+            setLoad(false);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+
+      useEffect(() => {
+        setLoad(true);
+        getProducts();
+        // eslint-disable-next-line
+      }, [category]);
 
 
     return (
