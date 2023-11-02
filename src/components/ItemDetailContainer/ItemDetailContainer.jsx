@@ -28,7 +28,7 @@ const ItemDetailContainer = () => {
 
     const getProduct = () => {
         const db = getFirestore();
-        const dbQuery = doc(db, "productos", "L5kmIRiMj7j8ea4VuBKm");
+        const dbQuery = doc(db, "productos", `${id}`);//"L5kmIRiMj7j8ea4VuBKm");
         getDoc(dbQuery)
           .then((response) => {
             setProduct({ id: response.id, ...response.data() });
@@ -42,8 +42,6 @@ const ItemDetailContainer = () => {
       useEffect(() => {
         getProduct();
       }, [id]);
-    console.log(id)
-
 
     return (
         <div className='itemDetailContainer__container'>

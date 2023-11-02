@@ -16,20 +16,6 @@ const ItemListContainer = ({ greeting }) => {
     const [load, setLoad] = useState(true)
     const { category } = useParams()
 
-    /*useEffect(() => {
-        setLoad(true)
-        const renderProd = category ? getProductsByCategory : getProducts;
-
-        renderProd(category)
-            .then(response => {
-                setProducts(response)
-                setLoad(false)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }, [category])*/
-
     const getProducts = () => {
         const db = getFirestore();
         const dbCollection = collection(db, "productos");
@@ -47,7 +33,6 @@ const ItemListContainer = ({ greeting }) => {
       useEffect(() => {
         setLoad(true);
         getProducts();
-        // eslint-disable-next-line
       }, [category]);
 
 

@@ -14,7 +14,6 @@ const ItemList = ({ productos }) => {
                                 key={p.id}
                                 id={p.id}
                                 title={p.title}
-                                description={p.description}
                                 price={p.price}
                                 image={p.image}
                             />
