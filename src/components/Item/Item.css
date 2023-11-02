@@ -12,7 +12,6 @@
 
 .item__card--data {
     padding: 2px 16px;
-    /*border-top: 2px solid #dc0054;*/
     border-top: 2px solid rgb(61, 61, 61);
     margin-bottom: 10px;
     
@@ -37,11 +36,11 @@
 
 .item__button--more:hover {
     color: #ffffff;
-    /*letter-spacing: 0.1rem;*/
     box-shadow: 0 4px 8px 0 rgba(200, 16, 46, 0.7);
 }
 
 .img-fluid {
     display: block;
     width: 100%;
+    border-radius: 20px;
 }

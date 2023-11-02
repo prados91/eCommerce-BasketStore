@@ -8,6 +8,8 @@ import Footer from './components/Footer/Footer';
 import CartContainer from './components/CartContainer/CartContainer';
 import Formm from './components/Form/Form'
 import { CartProvider } from './context/CartContext';
+
+import './APP.css'
 function App() {
 
     return (
