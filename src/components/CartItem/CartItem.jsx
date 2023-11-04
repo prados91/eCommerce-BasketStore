@@ -6,10 +6,6 @@ import './CartItem.css'
 
 const CartItem = () => {
     const { cart, deleteItemFromCart } = useContext(CartContext);
-
-    console.log(cart)
-
-
     return (
         <div>
             {cart.map((producto) => (

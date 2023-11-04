@@ -11,9 +11,12 @@
 }
 
 .item__card--data {
+    display: flex;
     padding: 2px 16px;
     border-top: 2px solid rgb(61, 61, 61);
     margin-bottom: 10px;
+    flex-direction: column;
+    justify-content: space-around;
     
 }
 
@@ -21,6 +24,7 @@
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 16px;
 }
 
 .item__button--more {

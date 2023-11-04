@@ -28,8 +28,8 @@ const ItemDetailContainer = () => {
 
     const getProduct = () => {
         const db = getFirestore();
-        const dbQuery = doc(db, "productos", `${id}`);//"L5kmIRiMj7j8ea4VuBKm");
-        getDoc(dbQuery)
+        const dbProdById = doc(db, "productos", `${id}`);//"L5kmIRiMj7j8ea4VuBKm");
+        getDoc(dbProdById)
           .then((response) => {
             setProduct({ id: response.id, ...response.data() });
             setFlag(false);

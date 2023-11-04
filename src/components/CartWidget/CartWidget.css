@@ -1,9 +1,9 @@
 .cartWidget__container {
-    padding: 0 20px;
+    /*padding: 0 20px;*/
     text-decoration: none;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: center;
     color: #fff;
 }
 
@@ -19,3 +19,4 @@
     border-radius: 35%;
     padding: 0 5px;
 }
+

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from '../CartWidget/CartWidget'
-import navLogo from '/logoBasketStore.png'
+import navLogo from '/logoBasketStore2.png'
 import './NavBar.css'
 
 const NavBar = () => {
@@ -18,6 +18,7 @@ const NavBar = () => {
                         <NavLink to='/categoria/camisetas' className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Camisetas</NavLink>
                         <NavLink to='/categoria/pantalones' className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Pantalones</NavLink>
                         <NavLink to='/categoria/camperas' className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Camperas</NavLink>
+                        <NavLink to='/categoria/zapatillas' className={({ isActive }) => isActive ? "navbar__items--btnON" : "navbar__items--btn"}>Zapatillas</NavLink>
                     </ul>
                     <ul>
                         <CartWidget />

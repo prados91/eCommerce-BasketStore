@@ -18,9 +18,9 @@ const ItemListContainer = ({ greeting }) => {
 
     const getProducts = () => {
         const db = getFirestore();
-        const dbCollection = collection(db, "productos");
-        const dbQuery = !category ? dbCollection : query(dbCollection, where("category", "==", category));
-        getDocs(dbQuery)
+        const dbProductos = collection(db, "productos");
+        const dbProdByCategory = !category ? dbProductos : query(dbProductos, where("category", "==", category));
+        getDocs(dbProdByCategory)
           .then((response) => {
             setProducts(response.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
             setLoad(false);
