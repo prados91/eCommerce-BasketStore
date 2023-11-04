@@ -6,11 +6,11 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
   
     const getCartFromLS = () => {
-      const cartJSONGet = JSON.parse(localStorage.getItem("cartJSON"));
-      cartJSONGet && setCart(cartJSONGet);
+      const cartLSGet = JSON.parse(localStorage.getItem("cartLS"));
+      cartLSGet && setCart(cartLSGet);
     };
   
-    const setCartLS = () => localStorage.setItem("cartJSON", JSON.stringify(cart));
+    const setCartLS = () => localStorage.setItem("cartLS", JSON.stringify(cart));
   
     const itemInCart = (id) => cart.some((item) => item.id === id);
 
