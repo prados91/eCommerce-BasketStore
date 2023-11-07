@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { getProducts, getProductsByCategory } from '../../functions/useFunction.js'
 import ItemList from '../ItemList/ItemList'
 import Loading from '../Loading/Loading'
 

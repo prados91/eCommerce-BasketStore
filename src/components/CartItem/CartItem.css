@@ -41,18 +41,17 @@
 
   @media screen and (max-width: 768px) {
     .cartItem__producto {
-        flex-direction: column; /* Cambia la dirección de los elementos a columnas */
-        align-items: flex-start; /* Alinea los elementos a la izquierda */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .cartItem__producto--detail div {
-        margin-left: 0; /* Elimina el margen izquierdo */
-        margin-top: 10px; /* Agrega espacio superior */
+        margin-left: 0; 
+        margin-top: 10px;
     }
 
     .cartItem__producto--btnDelete {
-        /*width: 100%; /* Ocupa todo el ancho disponible */
-        margin: 10px 0; /* Agrega espacio alrededor del botón */
+        margin: 10px 0; 
     }
 
     .cartItem__producto {

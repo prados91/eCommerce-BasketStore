@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-import { getProductByID } from '../../functions/useFunction.js'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import Loading from '../Loading/Loading'
 import { getFirestore, getDoc, doc } from "firebase/firestore";
@@ -14,21 +13,9 @@ const ItemDetailContainer = () => {
     const [flag, setFlag] = useState(true)
     const { id } = useParams()
 
-    /*useEffect(() => {
-        setFlag(true)
-        getProductByID(id)
-            .then(response => {
-                setProduct(response)
-                setFlag(false)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }, [id])*/
-
     const getProduct = () => {
         const db = getFirestore();
-        const dbProdById = doc(db, "productos", `${id}`);//"L5kmIRiMj7j8ea4VuBKm");
+        const dbProdById = doc(db, "productos", `${id}`);
         getDoc(dbProdById)
           .then((response) => {
             setProduct({ id: response.id, ...response.data() });
@@ -42,6 +29,7 @@ const ItemDetailContainer = () => {
       useEffect(() => {
         getProduct();
       }, [id]);
+    
 
     return (
         <div className='itemDetailContainer__container'>

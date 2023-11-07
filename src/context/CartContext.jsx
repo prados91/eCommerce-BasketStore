@@ -3,51 +3,65 @@ import { createContext, useState, useEffect } from "react";
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
+
     const [cart, setCart] = useState([]);
-  
+
     const getCartFromLS = () => {
-      const cartLSGet = JSON.parse(localStorage.getItem("cartLS"));
-      cartLSGet && setCart(cartLSGet);
+        const cartLSGet = JSON.parse(localStorage.getItem("cartLS"));
+        cartLSGet && setCart(cartLSGet);
     };
-  
+
     const setCartLS = () => localStorage.setItem("cartLS", JSON.stringify(cart));
-  
+
     const itemInCart = (id) => cart.some((item) => item.id === id);
 
     const addItemToCart = (product, quantity) => {
         const { id, title, price, image } = product;
-      
-        if (!itemInCart(id) && quantity > 0) {
-          const newItem = { id, title, price, image, quantity };
-          const newCart = cart.concat(newItem); // Concatenar el nuevo elemento al arreglo cart
-          setCart(newCart);
+
+        if (quantity > 0) {
+            const existingItem = cart.find(item => item.id === id);
+
+            if (existingItem) {
+                const updateCart = cart.map(item => {
+                    if (item.id === id) {
+                        return {...item, quantity: item.quantity + quantity};
+                    }
+                    return item;
+                });
+
+                setCart(updateCart);
+            } else {
+                const newItem = { id, title, price, image, quantity };
+                const newCart = [...cart, newItem];
+                setCart(newCart);
+            }
         }
-      };
+    };
 
     const deleteItemFromCart = (id) => {
         if (itemInCart(id)) {
-          const updateCart = cart.filter((item) => item.id !== id);
-          setCart(updateCart);
+            const updateCart = cart.filter((item) => item.id !== id);
+            setCart(updateCart);
         }
-      };
+    };
 
     const clearItemsFromCart = () => {
-      setCart([]);
+        setCart([]);
     };
-  
+
     useEffect(() => {
-      getCartFromLS();
+        getCartFromLS();
     }, []);
-  
+
     useEffect(() => {
-      setCartLS();
+        setCartLS();
     }, [cart]);
-  
+
     return (
-      <CartContext.Provider value={{ cart, addItemToCart, deleteItemFromCart , itemInCart, clearItemsFromCart }}>
-        {children}
-      </CartContext.Provider>
+        <CartContext.Provider value={{ cart, addItemToCart, deleteItemFromCart, itemInCart, clearItemsFromCart }}>
+            {children}
+        </CartContext.Provider>
     );
-  };
+};
 
 export default CartProvider;
