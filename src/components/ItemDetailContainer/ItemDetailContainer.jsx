@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 const ItemDetailContainer = () => {
 
     const [producto, setProduct] = useState(null)
-    const [flag, setFlag] = useState(true)
+    const [load, setLoad] = useState(true)
     const { id } = useParams()
 
     const getProduct = () => {
@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
         getDoc(dbProdById)
           .then((response) => {
             setProduct({ id: response.id, ...response.data() });
-            setFlag(false);
+            setLoad(false);
           })
           .catch((error) => {
             console.log(error);
@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className='itemDetailContainer__container'>
-            {flag ? (<Loading />)  : <ItemDetail producto={producto} />}
+            {load ? (<Loading />)  : <ItemDetail producto={producto} />}
         </div>
     )
 }
