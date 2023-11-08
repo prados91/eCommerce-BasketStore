@@ -5,6 +5,9 @@ import { CartContext } from '../../context/CartContext'
 
 import CartItem from '../CartItem/CartItem'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './CartContainer.css'
 
 const CartContainer = () => {
@@ -13,6 +16,25 @@ const CartContainer = () => {
     const [cartEmpty, setCartEmpty] = useState(true);
 
     const { cart, clearItemsFromCart } = useContext(CartContext);
+
+
+    const toasty = () => {
+        toast.error('Se eliminaron todos los productos del carrito', {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
+    const callFunction = () => {
+        clearItemsFromCart();
+        toasty();
+    }
 
     useEffect(() => {
         setTotalPrice(cart.reduce((acum, item) => acum + item.quantity * item.price, 0));
@@ -41,9 +63,7 @@ const CartContainer = () => {
                     <div className="cartContainer__buttons">
                         <button
                             className="cartContainer__btnclearItemsFromCart"
-                            onClick={() => {
-                                clearItemsFromCart();
-                            }}
+                            onClick={() => {callFunction()}}
                         >
                             Vaciar carrito
                         </button>
@@ -53,6 +73,7 @@ const CartContainer = () => {
                     </div>
                 )}
             </div>
+            <ToastContainer />
         </div>
 
     )

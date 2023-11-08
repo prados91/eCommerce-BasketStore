@@ -11,10 +11,10 @@ const ItemDetail = ({ producto }) => {
     const { addItemToCart, itemInCart } = useContext(CartContext);
     const [count, setCount] = useState(1);
 
-    const toastyNew = () => {
-        toast.success('Producto agregado al carrito', {
-            position: "top-right",
-            autoClose: 3000,
+    const toastyNew = (count) => {
+        toast.success(count == 1 ? 'Producto agregado al carrito' : 'Se agregaron ' + `${count}` + ' productos al carrito', {
+            position: "top-center",
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -24,10 +24,10 @@ const ItemDetail = ({ producto }) => {
         });
     }
 
-    const toastyDuplicated = () => {
-        toast.warn('Se agregaron elementos adicionales', {
-            position: "top-right",
-            autoClose: 3000,
+    const toastyDuplicated = (count) => {
+        toast.warn(count == 1 ? 'Se agregó un elemento adicional' : 'Se agregaron  ' + `${count}` + ' elementos adicionales', {
+            position: "top-center",
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -39,10 +39,10 @@ const ItemDetail = ({ producto }) => {
 
     const callFunction = () => {
         if (itemInCart(producto.id)) {
-            toastyDuplicated();
+            toastyDuplicated(count);
             addItemToCart(producto, count);
         } else {
-            toastyNew();
+            toastyNew(count);
             addItemToCart(producto, count);
         }
     }
