@@ -20,38 +20,40 @@ const CartContainer = () => {
     }, [cart]);
 
     return (
-        <div className="cartContainer__container">
-             <h2>Carrito de compras</h2>
-             <hr />
-             <div className="cartContainer__columns">
-                 <p>Producto</p>
-                 <p>Subtotal</p>
-             </div>
-             <hr />
-             <div className="cartContainer__products">
-                 {cartEmpty ? <div>El carrito de compras está vacio!</div> : <CartItem />}
-             </div>
-             <hr />
-             <p className="cartContainer__totalPrice">
-                 <b>TOTAL: ${totalPrice}</b>
-             </p>
-             <hr />
-             {!cartEmpty && (
-                 <div className="cartContainer__buttons">
-                     <button
-                         className="cartContainer__btnclearItemsFromCart"
-                         onClick={() => {
-                             clearItemsFromCart();
-                         }}
-                     >
-                         Vaciar carrito
-                     </button>
-                     <Link to="/form">
-                         <button className="cartContainer__btnForm">Finalizar compra</button>
-                     </Link>
-                 </div>
-             )}
-         </div>
+        <div className="cartContainer">
+            <div className="cartContainer__container">
+                <h2>Carrito de compras</h2>
+                <hr />
+                <div className="cartContainer__columns">
+                    <p>Producto</p>
+                    <p>Subtotal</p>
+                </div>
+                <hr />
+                <div className="cartContainer__products">
+                    {cartEmpty ? <div>El carrito de compras está vacio!</div> : <CartItem />}
+                </div>
+                <hr />
+                <p className="cartContainer__totalPrice">
+                    <b>TOTAL: ${totalPrice}</b>
+                </p>
+                <hr />
+                {!cartEmpty && (
+                    <div className="cartContainer__buttons">
+                        <button
+                            className="cartContainer__btnclearItemsFromCart"
+                            onClick={() => {
+                                clearItemsFromCart();
+                            }}
+                        >
+                            Vaciar carrito
+                        </button>
+                        <Link to="/form">
+                            <button className="cartContainer__btnForm">Finalizar compra</button>
+                        </Link>
+                    </div>
+                )}
+            </div>
+        </div>
 
     )
 }
