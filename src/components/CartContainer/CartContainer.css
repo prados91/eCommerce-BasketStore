@@ -73,19 +73,6 @@
     transition: 0.5s;
 }
 
-.cartContainer__link {
-    height: 40px;
-    width: 180px;
-    background: rgb(255, 156, 8);
-    color: black;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    transition: 0.5s;
-
-}
-
 .cartContainer__btnForm:hover {
     background: #006878;
     color: white;
@@ -94,7 +81,7 @@
 
 .cartContainer__btnclearItemsFromCart:hover {
     background: #dc0054;
-    color: black;
+    color: white;
     transition: 0.5s;
 }
 

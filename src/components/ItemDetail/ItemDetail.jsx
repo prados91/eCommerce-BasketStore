@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { CartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const ItemDetail = ({ producto }) => {
     const { addItemToCart, itemInCart } = useContext(CartContext);
     const [count, setCount] = useState(1);
+
+    const [imageNumber, setImageAux] = useState(0);
 
     const toastyNew = (count) => {
         toast.success(count == 1 ? 'Producto agregado al carrito' : 'Se agregaron ' + `${count}` + ' productos al carrito', {
@@ -47,14 +49,55 @@ const ItemDetail = ({ producto }) => {
         }
     }
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <div className="itemDetail__container">
             <h1>{producto.title}</h1>
 
             <div className="itemDetail__columns">
+
+                <div className="itemDetail__column--imageAux">
+                    <div
+                        onClick={() => {
+                            setImageAux(0);
+                        }}
+                    >
+                        <img src={producto.imageAux[0]} alt={producto.title} />
+                    </div>
+                    <div
+                        onClick={() => {
+                            setImageAux(1);
+                        }}
+                    >
+                        <img src={producto.imageAux[1]} alt={producto.title} />
+                    </div>
+                    <div
+                        onClick={() => {
+                            setImageAux(2);
+                        }}
+                    >
+                        <img src={producto.imageAux[2]} alt={producto.title} />
+                    </div>
+                </div>
+
+
                 <div className="itemDetail__column--image">
                     <div>
-                        <img src={producto.image} alt={producto.title} />
+                        {/*<img src={producto.image} alt={producto.title} />  <img src={producto.imageAux[imageNumber]} alt={producto.title} />  */}
+                        {!isMobile ? <img src={producto.imageAux[imageNumber]} alt={producto.title} /> : <img src={producto.imageAux[0]} alt={producto.title} />}
+
                     </div>
                 </div>
                 <div className="itemDetail__column--description">

@@ -27,31 +27,20 @@
     font-size: 16px;
 }
 
-.item__button--more {
-    background-color: rgb(61, 61, 61);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    transition: letter-spacing 0.5s, box-shadow 0.5s;
-    border-style: none;
-
-}
-
-.item__button--more:hover {
-    color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgb(255, 156, 8);
-}
-
 .item__card--link {
     background-color: rgb(61, 61, 61);
-    width: fit-content;
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
     border: none;
     transition: letter-spacing 0.5s, box-shadow 0.5s;
     border-style: none;
+    
+}
+
+.item__card--link:hover {
+    color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgb(255, 156, 8);
 }
 
 .img-fluid {

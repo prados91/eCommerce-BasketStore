@@ -45,6 +45,7 @@ const CartContainer = () => {
         <div className="cartContainer">
             <div className="cartContainer__container">
                 <h2>Carrito de compras</h2>
+
                 <hr />
                 <div className="cartContainer__products">
                     {cartEmpty ? <div>El carrito de compras está vacio!</div> : <CartItem />}
@@ -58,11 +59,11 @@ const CartContainer = () => {
                     <div className="cartContainer__buttons">
                         <button
                             className="cartContainer__btnclearItemsFromCart"
-                            onClick={() => {callFunction()}}
+                            onClick={() => { callFunction() }}
                         >
                             Vaciar carrito
                         </button>
-                        <Link to="/form" className="cartContainer__link">
+                        <Link to="/form" >
                             <button className="cartContainer__btnForm">Finalizar compra</button>
                         </Link>
                     </div>
