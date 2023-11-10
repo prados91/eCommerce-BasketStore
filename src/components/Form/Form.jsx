@@ -63,11 +63,11 @@ const Form = () => {
                             handleSubmit,
                             isSubmitting,
                         }) => (
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} className='form__container--form'>
                                 <input className="form__input" type="name" name="name" onChange={handleChange} value={values.name} placeholder="Nombre" />
                                 <input className="form__input" type="lastname" name="lastname" onChange={handleChange} value={values.lastname} placeholder="Apellido" />
                                 <input className="form__input" type="email" name="email" onChange={handleChange} value={values.email} placeholder="Correo electrónico" />
-                                <button type="submit" disabled={isSubmitting}>Confirmar compra</button>
+                                <button type="submit" disabled={isSubmitting} className='form__container--button'>Confirmar compra</button>
                             </form>
                         )}
                     </Formik>
@@ -80,8 +80,8 @@ const Form = () => {
                     <p>Nos contactaremos a {OC_Cliente.email} para finalizar los detalles de la compra y envío.</p>
                     <p>Tu número de compra es : {orderID}</p>
 
-                    <Link to="/" className="form__btnEND">
-                        <button >Rebotar a la tienda</button>
+                    <Link to="/" >
+                        <button className="form__btnEND">Rebotar a la tienda</button>
                     </Link>
                 </div>
             )}

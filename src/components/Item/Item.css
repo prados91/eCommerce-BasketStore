@@ -4,6 +4,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
     transition: 0.3s;
     text-align: center;
+    justify-content: center;
 }
 
 .item__card:hover {
@@ -16,8 +17,7 @@
     border-top: 2px solid rgb(61, 61, 61);
     margin-bottom: 10px;
     flex-direction: column;
-    justify-content: space-around;
-    
+    justify-content: center;
 }
 
 .item__card--data h5 {
@@ -35,12 +35,23 @@
     border: none;
     transition: letter-spacing 0.5s, box-shadow 0.5s;
     border-style: none;
-    
+
 }
 
 .item__button--more:hover {
     color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(200, 16, 46, 0.7);
+    box-shadow: 0 4px 8px 0 rgb(255, 156, 8);
+}
+
+.item__card--link {
+    background-color: rgb(61, 61, 61);
+    width: fit-content;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    transition: letter-spacing 0.5s, box-shadow 0.5s;
+    border-style: none;
 }
 
 .img-fluid {

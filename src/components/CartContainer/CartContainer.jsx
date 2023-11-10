@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useContext, useEffect } from "react"
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CartContext } from '../../context/CartContext'
 
 import CartItem from '../CartItem/CartItem'
@@ -46,11 +46,6 @@ const CartContainer = () => {
             <div className="cartContainer__container">
                 <h2>Carrito de compras</h2>
                 <hr />
-                <div className="cartContainer__columns">
-                    <p>Producto</p>
-                    <p>Subtotal</p>
-                </div>
-                <hr />
                 <div className="cartContainer__products">
                     {cartEmpty ? <div>El carrito de compras está vacio!</div> : <CartItem />}
                 </div>
@@ -67,7 +62,7 @@ const CartContainer = () => {
                         >
                             Vaciar carrito
                         </button>
-                        <Link to="/form">
+                        <Link to="/form" className="cartContainer__link">
                             <button className="cartContainer__btnForm">Finalizar compra</button>
                         </Link>
                     </div>
