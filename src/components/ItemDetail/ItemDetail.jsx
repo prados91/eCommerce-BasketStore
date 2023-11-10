@@ -49,10 +49,10 @@ const ItemDetail = ({ producto }) => {
         }
     }
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [mobileResponsive, setmobileResponsive] = useState(window.innerWidth < 768);
 
     const handleResize = () => {
-        setIsMobile(window.innerWidth < 768);
+        setmobileResponsive(window.innerWidth < 768);
     };
 
     useEffect(() => {
@@ -95,9 +95,7 @@ const ItemDetail = ({ producto }) => {
 
                 <div className="itemDetail__column--image">
                     <div>
-                        {/*<img src={producto.image} alt={producto.title} />  <img src={producto.imageAux[imageNumber]} alt={producto.title} />  */}
-                        {!isMobile ? <img src={producto.imageAux[imageNumber]} alt={producto.title} /> : <img src={producto.imageAux[0]} alt={producto.title} />}
-
+                        {!mobileResponsive ? <img src={producto.imageAux[imageNumber]} alt={producto.title} /> : <img src={producto.imageAux[0]} alt={producto.title} />}
                     </div>
                 </div>
                 <div className="itemDetail__column--description">
@@ -115,7 +113,6 @@ const ItemDetail = ({ producto }) => {
                     <ToastContainer />
                 </div>
             </div>
-
         </div>
     );
 };
