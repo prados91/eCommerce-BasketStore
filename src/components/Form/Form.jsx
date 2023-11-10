@@ -13,7 +13,7 @@ const Form = () => {
     const [order, setOrder] = useState(false);
     const [OC_Cliente, setOC_Cliente] = useState({});
     const [orderID, setOrderID] = useState("");
-    const [totalPrice, setTotalPrice] = useState(0);
+    const [precioTotal, setPrecioTotal] = useState(0);
 
     const { cart, clearItemsFromCart } = useContext(CartContext);
 
@@ -21,10 +21,11 @@ const Form = () => {
         const order = {
             OC_Cliente: {
                 name: values.name,
+                lastname: values.lastname,
                 email: values.email,
             },
             items: cart,
-            total: totalPrice,
+            total: precioTotal,
         };
         const db = getFirestore();
         const orderCollection = collection(db, "OC_Orders");
@@ -40,7 +41,7 @@ const Form = () => {
     };
 
     useEffect(() => {
-        setTotalPrice(cart.reduce((acum, item) => acum + item.quantity * item.price, 0));
+        setPrecioTotal(cart.reduce((acum, item) => acum + item.quantity * item.price, 0));
     }, [cart]);
 
     return (
@@ -50,6 +51,24 @@ const Form = () => {
                     <h2>Ingresa tus datos para confirmar la compra:</h2>
                     <Formik
                         initialValues={{ name: "", lastname: "", email: "" }}
+
+                        validate={(values) => {
+                            const errors = {};
+                            if (!values.name) {
+                                errors.name = "Ingrese su nombre";
+                            }
+                            if (!values.lastname) {
+                                errors.lastname = "Ingrese su apellido";
+                            }
+
+                            if (!values.email) {
+                                errors.email = "Ingrese un correo válido";
+                            } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+                                errors.email = "Ingrese un correo válido";
+                            }
+                            return errors;
+                        }}
+
                         onSubmit={(values, { setSubmitting }) => {
                             setLoad(true);
                             OC_Create(values);
@@ -59,14 +78,18 @@ const Form = () => {
                     >
                         {({
                             values,
+                            errors,
+                            touched,
                             handleChange,
+                            handleBlur,
                             handleSubmit,
                             isSubmitting,
                         }) => (
                             <form onSubmit={handleSubmit} className='form__container--form'>
-                                <input className="form__input" type="name" name="name" onChange={handleChange} value={values.name} placeholder="Nombre" />
-                                <input className="form__input" type="lastname" name="lastname" onChange={handleChange} value={values.lastname} placeholder="Apellido" />
-                                <input className="form__input" type="email" name="email" onChange={handleChange} value={values.email} placeholder="Correo electrónico" />
+                                
+                                <input className="form__input" type="name" name="name" onChange={handleChange} onBlur={handleBlur} value={values.name} placeholder="Nombre" />{errors.name && touched.name && errors.name}
+                                <input className="form__input" type="lastname" name="lastname" onChange={handleChange} onBlur={handleBlur} value={values.lastname} placeholder="Apellido" />{errors.lastname && touched.lastname && errors.lastname}
+                                <input className="form__input" type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Correo electrónico" />{errors.email && touched.email && errors.email}
                                 <button type="submit" disabled={isSubmitting} className='form__container--button'>Confirmar compra</button>
                             </form>
                         )}
