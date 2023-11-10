@@ -13,8 +13,8 @@ import './APP.css'
 function App() {
 
     return (
-        <BrowserRouter>
-            <CartProvider>
+        <CartProvider>
+            <BrowserRouter>
                 <NavBar />
                 <Routes>
                     <Route exact path='/' element={<ItemListContainer greeting={'Bienvenidos a Basketball | Store'} />} />
@@ -25,8 +25,8 @@ function App() {
                     <Route exact path='*' element={<h1> 404 NOT FOUND </h1>} />
                 </Routes>
                 <Footer />
-            </CartProvider>
-        </BrowserRouter>
+            </BrowserRouter>
+        </CartProvider>
 
     )
 }
