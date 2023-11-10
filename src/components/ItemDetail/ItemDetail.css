@@ -76,8 +76,6 @@
 }
 
 
-
-
 @media screen and (max-width: 768px) {
 
     .itemDetail__columns {
@@ -97,8 +95,17 @@
         font-size: 16px;
     }
 
-    .itemDetail__column--imageAux { 
+    .itemDetail__column--imageAux {
         display: none;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    .itemDetail__column--imageAux {
+        width: 75px;
+        justify-content: space-around;
     }
 
 }

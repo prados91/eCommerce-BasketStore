@@ -73,7 +73,7 @@ const ItemDetail = ({ producto }) => {
                         onClick={() => {
                             setImageAux(0);
                         }}
-                    >
+                        className="itemDetail__column--imageAux">
                         <img src={producto.imageAux[0]} alt={producto.title} />
                     </div>
                     <div
