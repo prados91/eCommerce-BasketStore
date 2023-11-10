@@ -1,4 +1,4 @@
-# React: e-Commerce Basket Store
+# React: e-Commerce Basket Store (Por Augusto Prados.)
 ## Página orientada a la venta de productos deportivos de la NBA
 
 ## OBJETIVO
@@ -7,7 +7,7 @@ Aplicar los conocimientos adquiridos en este curso para poder realizar un e-Comm
 
 ## DESARROLLO DEL PROYECTO
 
-Proyecto creado con:**[Create React Vite](https://vitejs.dev/)**. Instalación mediante comando NPM `npm create vite@latest`.
+Proyecto creado con: **[Create React Vite](https://vitejs.dev/)**. Instalación mediante comando NPM `npm create vite@latest`.
 
 Generación de rutas de navegación mediante: **[React Router](https://reactrouter.com/en/main)**. Instalación mediante: `npm install react-router-dom`.
 
