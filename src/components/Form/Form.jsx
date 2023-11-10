@@ -86,7 +86,6 @@ const Form = () => {
                             isSubmitting,
                         }) => (
                             <form onSubmit={handleSubmit} className='form__container--form'>
-                                
                                 <input className="form__input" type="name" name="name" onChange={handleChange} onBlur={handleBlur} value={values.name} placeholder="Nombre" />{errors.name && touched.name && errors.name}
                                 <input className="form__input" type="lastname" name="lastname" onChange={handleChange} onBlur={handleBlur} value={values.lastname} placeholder="Apellido" />{errors.lastname && touched.lastname && errors.lastname}
                                 <input className="form__input" type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Correo electrónico" />{errors.email && touched.email && errors.email}
@@ -98,14 +97,13 @@ const Form = () => {
             )}
             {load && !order && <Loading />}
             {!load && order && (
-                <div className="form__order">
-                    <p>Muchas gracias {OC_Cliente.name} por comprar en Basketball | Store</p>
-                    <p>Nos contactaremos a {OC_Cliente.email} para finalizar los detalles de la compra y envío.</p>
-                    <p>Tu número de compra es : {orderID}</p>
-
-                    <Link to="/" >
-                        <button className="form__btnEND">Rebotar a la tienda</button>
-                    </Link>
+                <div className='form__order--container'>
+                    <div className="form__order--greeting">
+                        <p>Muchas gracias {OC_Cliente.name} por comprar en Basketball | Store <hr />
+                        Nos contactaremos a {OC_Cliente.email} para finalizar los detalles de la compra y envío. <hr />
+                        Tu número de compra es : {orderID}</p>
+                    </div>
+                    <Link to="/" className="form__order--link">Rebotar a la tienda</Link>
                 </div>
             )}
         </div>
