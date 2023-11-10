@@ -6,6 +6,8 @@ import { CartContext } from "../../context/CartContext";
 import Loading from '../Loading/Loading';
 import { collection, addDoc, getFirestore } from 'firebase/firestore'
 import './Form.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Form = () => {
@@ -16,6 +18,19 @@ const Form = () => {
     const [precioTotal, setPrecioTotal] = useState(0);
 
     const { cart, clearItemsFromCart } = useContext(CartContext);
+
+    const toasty = () => {
+        toast.error('No puede comprar sin tener items seleccionados.', {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+        });
+    }
 
     const OC_Create = (values) => {
         const order = {
@@ -70,10 +85,15 @@ const Form = () => {
                         }}
 
                         onSubmit={(values, { setSubmitting }) => {
-                            setLoad(true);
-                            OC_Create(values);
-                            setOC_Cliente(values);
-                            setSubmitting(false);
+                            if (cart.length > 0) {
+                                setLoad(true);
+                                OC_Create(values);
+                                setOC_Cliente(values);
+                                setSubmitting(false);
+                            } else {
+                                toasty();
+                            }
+
                         }}
                     >
                         {({
@@ -100,12 +120,13 @@ const Form = () => {
                 <div className='form__order--container'>
                     <div className="form__order--greeting">
                         <p>Muchas gracias {OC_Cliente.name} por comprar en Basketball | Store <hr />
-                        Nos contactaremos a {OC_Cliente.email} para finalizar los detalles de la compra y envío. <hr />
-                        Tu número de compra es : {orderID}</p>
+                            Nos contactaremos a {OC_Cliente.email} para finalizar los detalles de la compra y envío. <hr />
+                            Tu número de compra es : {orderID}</p>
                     </div>
                     <Link to="/" className="form__order--link">Rebotar a la tienda</Link>
                 </div>
             )}
+            <ToastContainer />
         </div>
     );
 };
