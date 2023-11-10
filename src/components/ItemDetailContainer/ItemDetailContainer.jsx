@@ -17,23 +17,25 @@ const ItemDetailContainer = () => {
         const db = getFirestore();
         const dbProdById = doc(db, "productos", `${id}`);
         getDoc(dbProdById)
-          .then((response) => {
-            setProduct({ id: response.id, ...response.data() });
-            setLoad(false);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
-    
-      useEffect(() => {
+            .then((response) => {
+                setProduct({ id: response.id, ...response.data() });
+                setLoad(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
+
+
+    useEffect(() => {
         getProduct();
-      }, [id]);
-    
+    }, [id]);
+
 
     return (
         <div className='itemDetailContainer__container'>
-            {load ? (<Loading />)  : <ItemDetail producto={producto} />}
+            {load ? (<Loading />) : <ItemDetail producto={producto} />}
         </div>
     )
 }
