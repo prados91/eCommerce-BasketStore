@@ -9,7 +9,7 @@ import CartContainer from './components/CartContainer/CartContainer';
 import Formm from './components/Form/Form'
 import { CartProvider } from './context/CartContext';
 
-import './APP.css'
+import './App.css'
 function App() {
 
     return (
