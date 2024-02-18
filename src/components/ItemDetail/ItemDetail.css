@@ -69,9 +69,9 @@
 }
 
 .itemDetail__btn--AddItemToCart:hover {
-    background: rgba(255, 156, 8, 0.7);
+    background: #ff9c08b3;
     color: #000;
-    border: 1px solid rgb(255, 156, 8);
+    border: 1px solid #ff9c08;
     transition: 0.25s;
 }
 
